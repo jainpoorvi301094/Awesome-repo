@@ -62,7 +62,7 @@ public class BaseTest {
     @Parameters(value = {"browserName", "projectName"})
     public void beforeMethodMethod(String browserName, String projectName, Method testMethod) {
         logger = extent.createTest(testMethod.getName());
-        logger.info(projectName+"TEST METHO");
+        logger.info(projectName+"TEST TEST");
         setDriver(browserName);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
