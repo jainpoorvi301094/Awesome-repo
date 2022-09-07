@@ -12,9 +12,9 @@ public class LoginTest extends BaseTest {
     public void LoginMethodKite() throws InterruptedException, IOException {
 
         /* for Login User  */
-        LoginPageEvents loginPageEvents = new LoginPageEvents();
+        LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
         logger.info(driver.getCurrentUrl());
-        loginPageEvents.validateLogin();
+        loginPageEvents.loginMethod();
         logger.addScreenCaptureFromPath("../screenshots/LoginMethodKite.png");
 
     }

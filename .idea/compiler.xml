@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="falcon_project" />
+        <module name="Falcon_Dart" />
       </profile>
     </annotationProcessing>
   </component>

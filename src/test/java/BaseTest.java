@@ -12,7 +12,8 @@ import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import main.java.kite.pageEvents.LoginPageEvents;
-import main.java.utils.Constants;
+import main.java.utils.FrameworkConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -33,6 +34,9 @@ public class BaseTest {
     public static ExtentTest logger;
 
     public static ExtentReports addScreenCaptureFromPath;
+    FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);
+
+
 
 
 
@@ -44,7 +48,7 @@ public class BaseTest {
 
         sparkReporter.config().setEncoding("utf-8");
         sparkReporter.config().setCss("css-string");
-        sparkReporter.config().setDocumentTitle("Falcon Kit Report");
+        sparkReporter.config().setDocumentTitle("Falcon Report");
         sparkReporter.config().setTimelineEnabled(true);
         sparkReporter.config().setEncoding("utf-8");
         sparkReporter.config().setJs("js-string");
@@ -72,7 +76,7 @@ public class BaseTest {
         setDriver(browserName);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.get(projectName.equalsIgnoreCase("kite") ? Constants.url_kite : Constants.url_dart);
+        driver.get(projectName.equalsIgnoreCase("kite") ? config.kite() : config.dart());
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
@@ -119,9 +123,9 @@ public class BaseTest {
 
     public void LoginMethod() throws InterruptedException, IOException {
         logger.info("Doing Loging");
-        LoginPageEvents loginPageEvents =new LoginPageEvents();
+        LoginPageEvents loginPageEvents =new LoginPageEvents(driver);
         logger.info("Website Title is "+ driver.getTitle());
-        loginPageEvents.validateLogin();
+        loginPageEvents.loginMethod();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 

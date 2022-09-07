@@ -2,6 +2,7 @@ package test.java.dart;
 
 import main.java.dart.pageEvents.LoginPageEvents;
 import org.testng.annotations.Test;
+import test.java.BaseTest;
 
 import java.io.IOException;
 

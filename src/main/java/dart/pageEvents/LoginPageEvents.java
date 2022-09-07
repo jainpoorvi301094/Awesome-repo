@@ -2,17 +2,18 @@ package main.java.dart.pageEvents;
 
 
 import main.java.dart.pageObjects.LoginPageElements;
+import main.java.utils.FrameworkConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
-
 import java.util.concurrent.TimeUnit;
-
-import static test.java.dart.BaseTest.driver;
-import static test.java.dart.BaseTest.logger;
-
+import static test.java.BaseTest.driver;
+import static test.java.BaseTest.logger;
 
 public class LoginPageEvents extends LoginPageElements implements IReporter {
+
+    FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);
 
     // GetPage Title
     public void getTitleCompany() throws InterruptedException {
@@ -31,17 +32,17 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
 
     public void loginMethod() throws InterruptedException {
         Thread.sleep(3000);
-        enterpriseId.sendKeys("gouravqa11");
+        enterpriseId.sendKeys(config.enterpriseId());
         nxtButton.click();
         Thread.sleep(3000);
 
-        username.sendKeys("9009009099");
+        username.sendKeys(config.username());
         Thread.sleep(3000);
 
         sendOTP.click();
         Thread.sleep(3000);
 
-        enterOTP.sendKeys("111111");
+        enterOTP.sendKeys(config.otp());
         Thread.sleep(3000);
         loginButton.click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

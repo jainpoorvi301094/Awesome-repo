@@ -9,6 +9,8 @@
         <parameter name="projectName" value="kite"></parameter>
         <classes>
             <class name="test.java.kite.LoginTest"/>
+            <class name="test.java.kite.CreateAdminTest"/>
+            <class name="test.java.kite.AddEnterpriseTest"/>
         </classes>
     </test> <!-- Test -->
 
@@ -17,6 +19,7 @@
         <parameter name="projectName" value="dart"></parameter>
         <classes>
             <class name="test.java.dart.LoginTest"/>
+            <class name="test.java.dart.AddNewUserTest"/>
         </classes>
     </test> <!-- Test -->
 

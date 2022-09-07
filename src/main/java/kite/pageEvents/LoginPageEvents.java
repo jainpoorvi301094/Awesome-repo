@@ -2,6 +2,9 @@ package main.java.kite.pageEvents;
 
 
 import main.java.kite.pageObjects.LoginPageElements;
+import main.java.utils.FrameworkConfig;
+import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
 
@@ -11,6 +14,7 @@ import static test.java.BaseTest.logger;
 
 
 public class LoginPageEvents extends LoginPageElements implements IReporter {
+    FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);
 
     // GetPage Title
     public void getTitleCompany() throws InterruptedException {
@@ -19,15 +23,24 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
 
     }
 
-    public void validateLogin() throws InterruptedException {
+    WebDriver ldriver;
+    public LoginPageEvents (WebDriver rdriver)
+    {
+        ldriver=rdriver;
+        PageFactory.initElements(rdriver,this);
+    }
+
+   /* public void validateLogin() throws InterruptedException {
 
         LoginPageEvents loginPage = PageFactory.initElements(driver, LoginPageEvents.class);
         loginPage.loginMethod("superadmin@kite.work", "Kite@135#");
-    }
+        logger.info("validateLogin is Working");
+    }*/
 
-    public void loginMethod (String uname, String pass) throws InterruptedException {
-        username.sendKeys(uname);
-        password.sendKeys(pass);
+    public void loginMethod () throws InterruptedException {
+
+        username.sendKeys(config.email());
+        password.sendKeys(config.pass());
         Thread.sleep(3000);
         loginButton.click();
         Thread.sleep(2000);
