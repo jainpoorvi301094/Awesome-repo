@@ -19,4 +19,5 @@
             <class name="test.java.dart.LoginTest"/>
         </classes>
     </test> <!-- Test -->
+
 </suite> <!-- Suite -->

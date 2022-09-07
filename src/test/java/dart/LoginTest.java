@@ -8,12 +8,13 @@ import java.io.IOException;
 public class LoginTest extends BaseTest {
 
     @Test()
-    public void LoginMethod() throws InterruptedException, IOException {
+    public void LoginMethodDart() throws InterruptedException, IOException {
 
         /* for Login User in Dart portal */
         LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
+        logger.info(driver.getCurrentUrl());
         loginPageEvents.loginMethod();
-        logger.addScreenCaptureFromPath("../screenshots/LoginMethod.png");
+        logger.addScreenCaptureFromPath("../screenshots/LoginMethodDart.png");
 
     }
 

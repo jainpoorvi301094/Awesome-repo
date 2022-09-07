@@ -7,6 +7,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.JsonFormatter;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -36,9 +37,11 @@ public class BaseTest {
 
 
     @BeforeTest
-    public void beforeTestMethod() {
+    public void beforeTestMethod() throws IOException {
         String timeStamp = new SimpleDateFormat("dd-M-yyyy hh-mm-ss").format(new Date());
         sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + File.separator + "reports" + File.separator + "AutomationReport.html " + timeStamp );
+      //  JsonFormatter json = new JsonFormatter("extent.json"); // To add multiple Report
+
         sparkReporter.config().setEncoding("utf-8");
         sparkReporter.config().setCss("css-string");
         sparkReporter.config().setDocumentTitle("Falcon Kit Report");
@@ -49,11 +52,14 @@ public class BaseTest {
         sparkReporter.config().setReportName("Build 1.0.0");
         sparkReporter.config().setTheme(Theme.DARK);
 
+
         extent =new ExtentReports();
-        extent.attachReporter(sparkReporter);
+     //   extent.createDomainFromJsonArchive("extent.json"); // Same multiple report
+        extent.attachReporter(sparkReporter); // Same Multiple Report
         extent.setSystemInfo("Host name","localhost");
         extent.setSystemInfo("Environment","QA");
         extent.setSystemInfo("User","Gourav Sharma");
+
 
     }
 

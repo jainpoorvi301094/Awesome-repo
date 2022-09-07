@@ -9,12 +9,13 @@ import java.io.IOException;
 public class LoginTest extends BaseTest {
 
     @Test()
-    public void LoginMethod() throws InterruptedException, IOException {
+    public void LoginMethodKite() throws InterruptedException, IOException {
 
         /* for Login User  */
         LoginPageEvents loginPageEvents = new LoginPageEvents();
+        logger.info(driver.getCurrentUrl());
         loginPageEvents.validateLogin();
-        logger.addScreenCaptureFromPath("../screenshots/LoginMethod.png");
+        logger.addScreenCaptureFromPath("../screenshots/LoginMethodKite.png");
 
     }
 
