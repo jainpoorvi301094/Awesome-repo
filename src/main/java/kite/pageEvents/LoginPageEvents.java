@@ -44,7 +44,7 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         Thread.sleep(3000);
         loginButton.click();
         Thread.sleep(2000);
-        errMsgOnPage.getText();
+        //errMsgOnPage.getText();
         String errMsg = " Your email or password is incorrect. Please try again!";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         String crUrl = driver.getCurrentUrl();/*

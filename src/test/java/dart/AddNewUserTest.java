@@ -9,11 +9,11 @@ import test.java.BaseTest;
 
 import java.io.IOException;
 
-public class AddNewUserTest extends BaseTest {
+public class AddNewUserTest extends LoginTest {
 
     @Test(dataProvider = "endUserData")
     public void AddNewUseMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
-        super.LoginMethod();
+        super.LoginMethodDart();
 
         /*Add new user to portal */
         SideBarEvents sideBarEvents = new SideBarEvents(driver);

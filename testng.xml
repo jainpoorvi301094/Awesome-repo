@@ -12,7 +12,7 @@
             <class name="test.java.kite.CreateAdminTest"/>
             <class name="test.java.kite.AddEnterpriseTest"/>
         </classes>
-    </test> <!-- Test -->
+    </test>
 
     <test name="Test Automation for Dart">
         <parameter name="browserName" value="chrome"></parameter>
