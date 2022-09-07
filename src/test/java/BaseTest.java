@@ -40,7 +40,7 @@ public class BaseTest {
     public void beforeTestMethod() throws IOException {
         String timeStamp = new SimpleDateFormat("dd-M-yyyy hh-mm-ss").format(new Date());
         sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + File.separator + "reports" + File.separator + "AutomationReport.html " + timeStamp );
-      //  JsonFormatter json = new JsonFormatter("extent.json"); // To add multiple Report
+      //  JsonFormatter json = new JsonFormatter ("extent.json"); // To add multiple Report
 
         sparkReporter.config().setEncoding("utf-8");
         sparkReporter.config().setCss("css-string");
