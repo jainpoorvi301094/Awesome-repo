@@ -1,8 +1,17 @@
 package main.java.dart.pageEvents;
 
 import main.java.dart.pageObjects.EndUserElements;
+import main.java.utils.XLUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
+
+
+import java.io.IOException;
+
+import static test.java.BaseTest.logger;
 
 public class EndUserEvents extends EndUserElements {
 
@@ -11,6 +20,7 @@ public class EndUserEvents extends EndUserElements {
     public EndUserEvents (WebDriver rdriver){
         ldriver = rdriver;
         PageFactory.initElements(rdriver,this);
+
     }
 
     public void addNewUser (String fName, String lName, String mNumber, String email) throws InterruptedException {
@@ -41,10 +51,15 @@ public class EndUserEvents extends EndUserElements {
 
 
         /* *************Add More Information**************** */
+        /* *** Events for Write Data in Excell  */
+
+
+
+    }
 
     }
 
 
 
 
-}
+

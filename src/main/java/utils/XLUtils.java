@@ -19,8 +19,13 @@ public class XLUtils {
     public static XSSFRow row;
     public static XSSFCell cell;
 
-    public static int getRowCount(String xlfile, String xlsheet) throws IOException {
-        fi=new FileInputStream(xlfile);
+   static String path;
+   public XLUtils(String path){
+       this.path=path;
+   }
+
+    public static int getRowCount(String xlsheet) throws IOException {
+        fi=new FileInputStream(path);
         wb=new XSSFWorkbook(fi);
         ws=wb.getSheet(xlsheet);
         int rowcount=ws.getLastRowNum();
@@ -29,9 +34,9 @@ public class XLUtils {
         return rowcount;
 
     }
-    public static int getCellCount(String xlfile, String xlsheet, int rownum) throws IOException{
+    public static int getCellCount(String xlsheet, int rownum) throws IOException{
 
-        fi=new FileInputStream(xlfile);
+        fi=new FileInputStream(path);
         wb=new XSSFWorkbook(fi);
         ws=wb.getSheet(xlsheet);
         row=ws.getRow(rownum);
@@ -42,8 +47,8 @@ public class XLUtils {
 
     }
 
-    public static String getCellData(String xlfile, String xlsheet, int rownum, int colnum) throws IOException{
-        fi=new FileInputStream(xlfile);
+    public static String getCellData(String xlsheet, int rownum, int colnum) throws IOException{
+        fi=new FileInputStream(path);
         wb=new XSSFWorkbook(fi);
         ws=wb.getSheet(xlsheet);
         row=ws.getRow(rownum);
@@ -63,14 +68,14 @@ public class XLUtils {
         return data;
     }
 
-    public static void setCellData(String xlfile, String xlsheet, int rownum, int colnum, String data) throws IOException{
-        fi=new FileInputStream(xlfile);
+    public static void setCellData( String xlsheet, int rownum, int colnum, String data) throws IOException{
+        fi=new FileInputStream(path);
         wb=new XSSFWorkbook(fi);
         ws=wb.getSheet(xlsheet);
         row= ws.getRow(rownum);
         cell=row.createCell(colnum);
         cell.setCellValue(data);
-        fo=new FileOutputStream(xlfile);
+        fo=new FileOutputStream(path);
         wb.write(fo);
         wb.close();
         fi.close();

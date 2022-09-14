@@ -30,4 +30,7 @@ public interface FrameworkConfig extends Config {
 
     @Key("${environment}.dart")
     String dart();
+    @Key("${environment}.tablepath")
+    String tablepath();
+
 }
